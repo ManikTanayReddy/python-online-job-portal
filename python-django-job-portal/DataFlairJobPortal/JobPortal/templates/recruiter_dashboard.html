@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recruiter Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, Recruiter!</h1>
+    <h2>Company Profile</h2>
+    {% if company %}
+        <p>Name: {{ company.name }}</p>
+        <!-- Display other company profile details -->
+        <a href="{% url 'update_company_profile' %}">Update Company Profile</a>
+    {% else %}
+        <a href="{% url 'create_company_profile' %}">Create Company Profile</a>
+    {% endif %}
+    <!-- Other dashboard options -->
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recruiter Dashboard</title>
+    <style>
+        /* Your CSS styles here */
+        /* Similar to previous styles */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, Recruiter!</h1>
+        {% if company %}
+            <!-- Display company profile details -->
+            <h2>{{ company.name }} Profile</h2>
+            <p>Company Type: {{ company.company_type }}</p>
+            <p>Employees: {{ company.employees }}</p>
+            <p>Vacancies: {{ company.vacancies }}</p>
+            <p>Rating: {{ company.rating }}</p>
+            <a href="{% url 'update_company_profile' %}" class="update-btn">Update Profile</a>
+        {% else %}
+            <h2>Create Company Profile</h2>
+            <form action="{% url 'create_company_profile' %}" method="POST">
+                {% csrf_token %}
+                <!-- Company profile creation fields -->
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <!-- Include other company profile fields as per your model -->
+
+                <input type="submit" value="Create Profile" class="btn">
+            </form>
+        {% endif %}
+        <a href="{% url 'index' %}" class="back-btn">Back</a>
+    </div>
+</body>
+</html>
+
