@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Company(models.Model):
+    id = models.BigAutoField(primary_key=True)  # Specify BigAutoField as primary key
     user=models.OneToOneField(User,null=True,on_delete=models.CASCADE)
     name=models.CharField(max_length=200,null=True)
     position=models.CharField(max_length=200,null=True)
@@ -20,6 +21,7 @@ class Candidates(models.Model):
         ('Female','female'),
         ('Other','other'),
     )
+    id = models.BigAutoField(primary_key=True)  # Specify BigAutoField as primary key
     name=models.CharField(max_length=200,null=True)
     dob=models.DateField(null=True)
     gender= models.CharField(max_length=200,null=True,choices=category)
