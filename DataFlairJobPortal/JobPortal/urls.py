@@ -8,7 +8,12 @@ urlpatterns = [
     path('jobseeker/login/', views.jobseeker_login, name='jobseeker_login'),
     path('jobseeker/logout/', views.jobseeker_logout, name='jobseeker_logout'),
     path('recruiter/register/', views.recruiter_register, name='recruiter_register'),
-    path('recruiter/login/', views.recruiter_login, name='recruiter_login'),
-    path('recruiter/logout/', views.recruiter_logout, name='recruiter_logout'),
+     path('recruiter/profile/', views.recruiter_profile, name='recruiter_profile'),
+    path('jobseeker/profile/', views.jobseeker_profile, name='jobseeker_profile'),
+    path('company/profile/', views.company_profile, name='company_profile'),
+    path('company/update/', views.company_update, name='company_update'),
+     path('recruiter/update/', views.recruiter_update, name='recruiter_update'),
+    path('jobseeker/update/', views.jobseeker_update, name='jobseeker_update'),
+    path('logout/', views.user_logout, name='logout'),
     # Add other paths as needed for different views or functionalities
 ]
