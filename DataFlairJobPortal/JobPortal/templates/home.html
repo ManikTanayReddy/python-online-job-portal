@@ -10,55 +10,55 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     /* Add your custom styles here */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-header {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
+    header {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
 
-.navbar-brand {
-  font-weight: bold;
-}
+    .navbar-brand {
+      font-weight: bold;
+    }
 
-.hero {
-  background-color: #f8f9fa;
-  padding: 100px 0;
-}
+    .hero {
+      background-color: #f8f9fa;
+      padding: 100px 0;
+    }
 
-.hero h1 {
-  font-size: 3rem;
-}
+    .hero h1 {
+      font-size: 3rem;
+    }
 
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
 
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
-}
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
 
-.btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
-}
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
 
-.greeting {
-  padding: 80px 0;
-  background-color: #e9ecef;
-}
+    .greeting {
+      padding: 80px 0;
+      background-color: #e9ecef;
+    }
 
-footer {
-  background-color: #343a40;
-  color: #fff;
-  padding: 20px 0;
-}
+    footer {
+      background-color: #343a40;
+      color: #fff;
+      padding: 20px 0;
+    }
 
   </style>
 </head>
@@ -73,7 +73,7 @@ footer {
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#get-in">Get in</a>
+              <a class="nav-link" href="{% url 'index' %}">Get in</a>
             </li>
           </ul>
         </div>
@@ -86,7 +86,7 @@ footer {
       <h1 class="display-4">Intelligent: Online Job Recruitment System</h1>
       <p class="lead">Welcome to our innovative job portal where talents meet opportunities.</p>
       <p>Start your journey with us today!</p>
-      <a href="#get-in" class="btn btn-primary btn-lg">Get in</a>
+      <a href="{% url 'index' %}" class="btn btn-primary btn-lg">Get in</a>
     </div>
   </section>
 

@@ -1,64 +1,61 @@
-from django.shortcuts import render,redirect
-from .models import *
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login,logout,authenticate
-from .forms import *
+from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import render, redirect
+from .forms import JobSeekerForm, RecruiterForm
 
-# Create your views here.
 def home(request):
-    if request.user.is_authenticated:
-        candidates=Candidates.objects.filter(company__name=request.user.username)
-        context={
-            'candidates':candidates,
-        }
-        return render(request,'hr.html',context)
-    else:
-        companies=Company.objects.all()
-        context={
-            'companies':companies,
-        }
-        return render(request,'Jobseeker.html',context)
+    return render(request, 'home.html')
 
-def logoutUser(request):
-    logout(request)
-    return redirect('login')
+def index(request):
+    return render(request, 'index.html')
 
-
-def loginUser(request):
-    if request.user.is_authenticated:
-        return redirect('home')
-    else:
-       if request.method=="POST":
-        name=request.POST.get('username')
-        pwd=request.POST.get('password')
-        user=authenticate(request,username=name,password=pwd)
-        if user is not None:
-            login(request,user)
-            return redirect('home')
-       return render(request,'login.html')
-
-def registerUser(request):
-    if request.user.is_authenticated:
-        return redirect('home')
-    else:
-        Form=UserCreationForm()
-        if request.method=='POST':
-            Form=UserCreationForm(request.POST)
-            if Form.is_valid():
-                currUser=Form.save()
-                Company.objects.create(user=currUser,name=currUser.username)
-                return redirect('login')
-        context={
-            'form':Form
-        }
-        return render(request,'register.html',context)
-
-def applyPage(request):
-    form=ApplyForm()
-    if request.method=='POST':
-        form=ApplyForm(request.POST,request.FILES)
+def jobseeker_register(request):
+    if request.method == 'POST':
+        form = JobSeekerForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('home')
-    context={'form':form}
-    return render(request,'apply.html',context)
+            user = form.save()
+            # Additional logic for jobseeker registration if needed
+            return redirect('jobseeker_login')
+    else:
+        form = JobSeekerForm()
+    context = {'form': form}
+    return render(request, 'jobseeker_register.html', context)
+
+def jobseeker_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('jobseeker_dashboard')  # Redirect to jobseeker dashboard after login
+    return render(request, 'jobseeker_login.html')
+
+def jobseeker_logout(request):
+    logout(request)
+    return redirect('jobseeker_login')  # Redirect to jobseeker login after logout
+
+def recruiter_register(request):
+    if request.method == 'POST':
+        form = RecruiterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            # Additional logic for recruiter registration if needed
+            return redirect('recruiter_login')
+    else:
+        form = RecruiterForm()
+    context = {'form': form}
+    return render(request, 'recruiter_register.html', context)
+
+def recruiter_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('recruiter_dashboard')  # Redirect to recruiter dashboard after login
+    return render(request, 'recruiter_login.html')
+
+def recruiter_logout(request):
+    logout(request)
+    return redirect('recruiter_login')  # Redirect to recruiter login after logout
