@@ -3,14 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <title>Jobseeker Login</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css"> <!-- Your custom CSS file -->
+  <style>
+    
+  </style>
 </head>
 <body>
-  <h1>Jobseeker Login</h1>
-  <form method="POST">
-    {% csrf_token %}
-    <input type="text" name="username" placeholder="Username" required><br><br>
-    <input type="password" name="password" placeholder="Password" required><br><br>
-    <button type="submit">Login</button>
-  </form>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">Intelligent</a>
+        <!-- Add your navigation items here if needed -->
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="container text-center">
+      <h1 class="display-4">Jobseeker Login</h1>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <input type="text" name="username" class="form-control" placeholder="Username" required>
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+        <p class="mt-3">Not registered yet? <a href="{% url 'jobseeker_register' %}">Register as a job seeker</a></p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container text-center">
+      <p>&copy; 2023 Intelligent Job Portal</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
