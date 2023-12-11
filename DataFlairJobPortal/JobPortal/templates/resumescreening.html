@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Screening</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Your custom CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Your additional styles here */
+        /* Retain any necessary styles from the previous design */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+        }
+
+        .success-message {
+            margin: 50px auto;
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            box-shadow: 0 8px 16px 0 rgba(0, 255, 0, 0.2); /* Green shadow */
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .success-message:hover {
+            box-shadow: 0 12px 20px 0 rgba(0, 255, 0, 0.4); /* Bigger green shadow on hover */
+        }
+
+        .success-message p:first-child {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1c7a1c; /* Dark green color */
+            text-shadow: 2px 2px 4px rgba(0, 255, 0, 0.6); /* Text shadow */
+            margin-bottom: 10px;
+        }
+
+        .success-message p:last-child {
+            font-size: 18px;
+            color: #0c610c; /* Slightly lighter green */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Intelligent</a>
+                <!-- Add your navigation items here if needed -->
+            </div>
+        </nav>
+    </header>
+    <div class="success-message">
+        <p>Resume screening started</p>
+        <p>Suitable Candidates suitable to given requirement are being searched, please wait</p>
+    </div>
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2023 Intelligent Job Portal</p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

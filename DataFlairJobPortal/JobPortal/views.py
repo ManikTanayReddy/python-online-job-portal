@@ -129,6 +129,23 @@ def jobseeker_update(request):
         form = JobSeekerForm(instance=jobseeker)
     return render(request, 'jobseeker_update.html', {'form': form})
 
+def jobseeker_jobs(request):
+    # Fetch companies from the database
+    companies = Company.objects.all()  # Assuming Company is your model name
+    context = {'companies': companies}
+    return render(request, 'jobseeker.html', context)
+
+def apply(request):
+    return render(request, 'apply.html')
+
+def recruiters(request):
+    # Your logic to fetch applied jobseekers and render recruiter.html
+    candidates = JobSeeker.objects.all()  # Query to fetch jobseekers
+    return render(request, 'recruiter.html', {'candidates': candidates})
+
+def resumescreening(request):
+    return render(request, 'resumescreening.html')
+
 def user_logout(request):
     logout(request)
     return redirect('home')  # Redirect to the home page after logout

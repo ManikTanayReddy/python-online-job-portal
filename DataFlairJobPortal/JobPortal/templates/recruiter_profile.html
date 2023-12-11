@@ -15,27 +15,31 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="#">Intelligent</a>
-                <!-- Add your navigation items here if needed -->
+                <div>
+                    <a href="{% url 'recruiters' %}" class="btn btn-success">Search Jobseekers</a>
+                </div>
             </div>
         </nav>
     </header>
-    <section class="login-options">
-        <div class="container text-center">
-            <h2>Welcome, Recruiter!</h2>
-            <h3>Profile Details</h3>
-            <p>Username: {{ recruiter.user.username }}</p>
-            <p>Designation: {{ recruiter.designation }}</p>
-            <p>Employee ID: {{ recruiter.employee_id }}</p>
-            <p>Qualifications: {{ recruiter.qualifications }}</p>
-            <p>Role: {{ recruiter.role }}</p>
-            <p>Experience: {{ recruiter.experience }}</p>
-            <p>Phone Number: {{ recruiter.phone_number }}</p>
-            <p>Strengths: {{ recruiter.strengths }}</p>
-            <p>Nationality: {{ recruiter.nationality }}</p>
-            <a href="{% url 'recruiter_update' %}" class="btn btn-primary">Edit Profile</a>
-            <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
-        </div>
-    </section>
+    <div>
+        <section class="login-options">
+            <div class="container text-center">
+                <h2>Welcome, Recruiter!</h2>
+                <h3>Profile Details</h3>
+                <p>Username: {{ recruiter.user.username }}</p>
+                <p>Designation: {{ recruiter.designation }}</p>
+                <p>Employee ID: {{ recruiter.employee_id }}</p>
+                <p>Qualifications: {{ recruiter.qualifications }}</p>
+                <p>Role: {{ recruiter.role }}</p>
+                <p>Experience: {{ recruiter.experience }}</p>
+                <p>Phone Number: {{ recruiter.phone_number }}</p>
+                <p>Strengths: {{ recruiter.strengths }}</p>
+                <p>Nationality: {{ recruiter.nationality }}</p>
+                <a href="{% url 'recruiter_update' %}" class="btn btn-primary">Edit Profile</a>
+                <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+            </div>
+        </section>
+    </div>
     <footer>
         <div class="container text-center">
             <p>&copy; 2023 Intelligent Job Portal</p>

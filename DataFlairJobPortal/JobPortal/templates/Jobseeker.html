@@ -8,28 +8,28 @@
         <table class="table table-hover">
             <tr>
                 <th>Name</th>
-                <th>Position</th>
-                <th>Description</th>
-                <th>Salary</th>
-                <th>Experience</th>
-                <th>Location</th>
+                <th>Company Type</th>
+                <th>Employees</th>
+                <th>Vacancies</th>
+                <th>Rating</th>
+                <th>Main Branch City</th>
                 <th>Join</th>
             </tr>
             {% for c in companies %}
                 <tr>
-                    <td>{{c.name}}</td>
-                    <td>{{c.position}}</td>
-                    <td>{{c.description}}</td>
-                    <td>{{c.salary}}</td>
-                    <td>{{c.experience}}</td>
-                    <td>{{c.Location}}</td>
+                    <td>{{ c.name }}</td>
+                    <td>{{ c.company_type }}</td>
+                    <td>{{ c.employees }}</td>
+                    <td>{{ c.vacancies }}</td>
+                    <td>{{ c.rating }}</td>
+                    <td>{{ c.main_branch_city }}</td>
                     <td><a href="{% url 'apply' %}" class="btn btn-info btn-sm" type="submit">Apply</a></td>
                 </tr>
             {% endfor %}
         </table>
     </div>
 </div>
-        {% for c in companies %}
-            {{c.name}}
-        {% endfor %}
+<div class="container mt-3">
+    <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+</div>
 {% endblock %}

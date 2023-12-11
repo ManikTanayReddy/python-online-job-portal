@@ -35,8 +35,14 @@
                 {% endfor %}
             </p>
             <p>Resume: <a href="{{ jobseeker.resume.url }}">{{ jobseeker.resume.name }}</a></p>
-            <a href="{% url 'jobseeker_update' %}" class="btn btn-primary">Edit Profile</a>
-            <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+            <section class="login-options">
+                <div class="container text-center">
+                    <!-- ... (existing profile details) -->
+                    <a href="{% url 'jobseeker_jobs' %}" class="btn btn-success">Search Jobs</a>
+                    <a href="{% url 'jobseeker_update' %}" class="btn btn-primary">Edit Profile</a>
+                    <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+                </div>
+            </section>
         </div>
     </section>
     <footer>
