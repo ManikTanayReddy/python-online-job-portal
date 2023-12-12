@@ -5,3 +5,4 @@ from .models import Company, JobSeeker, Recruiter
 admin.site.register(Company)
 admin.site.register(JobSeeker)
 admin.site.register(Recruiter)
+
