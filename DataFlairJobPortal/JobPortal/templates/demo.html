@@ -1,53 +1,118 @@
-<!-- base.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Intelligent: Online Job Recruitment System</title>
-    <!-- Add your stylesheets and scripts here -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css"> <!-- Your custom CSS file -->
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        /* Add your custom styles here */
-        /* Your existing styles from the provided snippet */
-    </style>
+  <meta charset="UTF-8">
+  <title>Intelligent: Online Job Recruitment System</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css"> <!-- Your custom CSS file -->
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Add your custom styles here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+    }
+
+    .hero {
+      background-color: #f8f9fa;
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+
+    .greeting {
+      padding: 80px 0;
+      background-color: #e9ecef;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+  </style>
 </head>
 <body>
-    <header>
-        <!-- Your existing header with navigation -->
-    </header>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">Intelligent</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">Get in</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-    <!-- Shared content across all pages -->
-    {% block content %}
-    {% endblock %}
+  <section class="hero">
+    <div class="container">
+      <h1 class="display-4">Intelligent: Online Job Recruitment System</h1>
+      <p class="lead">Welcome to our innovative job portal where talents meet opportunities.</p>
+      <p>Start your journey with us today!</p>
+      <a href="{% url 'index' %}" class="btn btn-primary btn-lg">Get in</a>
+    </div>
+  </section>
 
-    <footer>
-        <!-- Your existing footer content -->
-    </footer>
+  <!-- Greeting Section (You can customize this section further) -->
+  <section id="get-in" class="greeting">
+    <div class="container">
+      <h2>Welcome to Intelligent</h2>
+      <p>Connect with the best job opportunities or find top talent to elevate your company.</p>
+    </div>
+  </section>
 
-    <!-- Your existing scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Intelligent Job Portal</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
-
-
-
-
-
-
-
-
 </html>
-<!-- apply.html -->
-{% extends 'main.html' %}
-
-{% block content %}
-<div class="container">
-    <h1>Your Application is successfully sent and wait for the response</h1>
-    <a href="{% url 'jobseeker_jobs' %}" class="btn btn-primary">Back</a>
-</div>
-{% endblock %}
