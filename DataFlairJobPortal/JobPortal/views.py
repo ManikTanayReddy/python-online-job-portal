@@ -106,6 +106,7 @@ def company_update(request):
     }
     return render(request, 'company_update.html', context)
 
+
 def recruiter_update(request):
     user = request.user
     if request.method == 'POST':

@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Company(models.Model):
-    admin= models.ForeignKey('Recruiter', on_delete=models.CASCADE)
     name = models.CharField(max_length=100, help_text='Enter company name')
     company_type = models.CharField(max_length=100)
     employees = models.PositiveIntegerField(default=0)
@@ -13,7 +12,7 @@ class Company(models.Model):
     def __str__(self):
         return self.name
 
-class JobSeeker(models.Model):  # Renamed from Candidate to JobSeeker
+class JobSeeker(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, null=True)
     dob = models.DateField(null=True)
