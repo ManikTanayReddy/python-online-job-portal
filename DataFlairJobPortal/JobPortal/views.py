@@ -35,14 +35,20 @@ def jobseeker_login(request):
 def recruiter_register(request):
     if request.method == 'POST':
         form = RecruiterForm(request.POST)
+        print("Form Data:", request.POST)  # Check the form data received
         if form.is_valid():
+            print("Form is valid!")  # Ensure that the form passes validation
             user = form.save()
+            print("User created:", user)  # Check the user instance created
             # Additional logic for recruiter registration if needed
             return redirect('recruiter_login')
+        else:
+            print("Form is invalid:", form.errors)  # Check for any form validation errors
     else:
         form = RecruiterForm()
     context = {'form': form}
     return render(request, 'recruiter_register.html', context)
+
 
 def recruiter_login(request):
     if request.method == 'POST':
@@ -62,13 +68,10 @@ def jobseeker_profile(request):
     jobseeker = JobSeeker.objects.get(user=request.user)
     return render(request, 'jobseeker_profile.html', {'jobseeker': jobseeker})
 
-
- # Assuming you have created the form
-
 def company_profile(request):
     # Fetch company profile based on the logged-in user
-    admin = request.user.recruiter
-    company = Company.objects.get(admin=admin)
+    recruiter = request.user.recruiter  # Update this line if necessary
+    company = Company.objects.get(recruiter=recruiter)
 
     if request.method == 'POST':
         form = CompanyForm(request.POST, instance=company)
@@ -86,8 +89,8 @@ def company_profile(request):
 
 def company_update(request):
     # Fetch company profile based on the logged-in user
-    admin = request.user.recruiter
-    company = Company.objects.get(admin=admin)
+    recruiter = request.user.recruiter  # Update this line if necessary
+    company = Company.objects.get(recruiter=recruiter)
 
     if request.method == 'POST':
         form = CompanyForm(request.POST, instance=company)

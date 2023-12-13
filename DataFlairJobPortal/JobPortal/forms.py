@@ -1,6 +1,5 @@
 from django import forms
 from .models import JobSeeker, Recruiter, Company
-
 class JobSeekerForm(forms.ModelForm):  # Modified from CandidateForm to JobSeekerForm
     class Meta:
         model = JobSeeker  # Changed model from Candidate to JobSeeker

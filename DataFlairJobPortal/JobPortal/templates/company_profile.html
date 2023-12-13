@@ -6,8 +6,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css"> <!-- Your custom CSS file -->
     <style>
-        /* Your additional styles here */
-        /* You can retain styles from the previous design */
+        body {
+      background-color: #0b4278; /* Sky blue color */
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
     </style>
 </head>
 <body>
@@ -23,7 +27,6 @@
         <div class="container text-center">
             <h2>Welcome to Your Company Profile!</h2>
             <h3>Company Details</h3>
-            <p>Admin: {{ company.admin.user.username }}</p>
             <p>Name: {{ company.name }}</p>
             <p>Company Type: {{ company.company_type }}</p>
             <p>Employees: {{ company.employees }}</p>
